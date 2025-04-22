@@ -17,8 +17,7 @@
 				"count": 2,
 				"addMaxCount": 5,
 				"rarity": [
-					"rare",
-					"Rare"
+					"rare"
 				]
 			},
 			{
@@ -43,8 +42,7 @@
 					"Red"
 				],
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"subTypes": [
 					"Demon"
@@ -117,8 +115,7 @@
 				"count": 1,
 				"addMaxCount": 3,
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				]
 			}
 		],
@@ -177,8 +174,7 @@
 				"rarity": [
 					"Common",
 					"Uncommon",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"colorType": "MonoColor"
 			}
@@ -243,8 +239,7 @@
 				"count": 1,
 				"addMaxCount": 4,
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				]
 			}
 		],
@@ -314,8 +309,7 @@
 				"count": 1,
 				"addMaxCount": 4,
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				]
 			}
 		],
@@ -382,8 +376,7 @@
 				"count": 1,
 				"addMaxCount": 4,
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				]
 			}
 		],
@@ -425,8 +418,7 @@
 				"rarity": [
 					"common",
 					"uncommon",
-					"rare",
-					"Rare"
+					"rare"
 				],
 				"subTypes": [
 					"Dragon"
@@ -446,8 +438,7 @@
 					"Green"
 				],
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"cardTypes": [
 					"Planeswalker"
@@ -512,8 +503,7 @@
 				"rarity": [
 					"common",
 					"uncommon",
-					"rare",
-					"Rare"
+					"rare"
 				],
 				"subTypes": [
 					"Dragon"
@@ -533,8 +523,7 @@
 					"Blue"
 				],
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"cardTypes": [
 					"Planeswalker"
@@ -734,7 +723,6 @@
 				"count": 1,
 				"addMaxCount": 1,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -947,8 +935,7 @@
 					"Black"
 				],
 				"rarity": [
-					"rare",
-					"Rare"
+					"rare"
 				],
 				"subTypes": [
 					"Vampire"
@@ -1003,8 +990,7 @@
 				"rarity": [
 					"common",
 					"uncommon",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"subTypes": [
 					"Angel"
@@ -1040,8 +1026,7 @@
 				"rarity": [
 					"uncommon",
 					"common",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"cardTypes": [
 					"Land"
@@ -1623,8 +1608,7 @@
 					"White"
 				],
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"colorType": "MultiColor"
 			},
@@ -1830,8 +1814,7 @@
 				"count": 2,
 				"addMaxCount": 5,
 				"rarity": [
-					"rare",
-					"Rare"
+					"rare"
 				]
 			},
 			{
@@ -1857,8 +1840,7 @@
 					"Blue"
 				],
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"subTypes": [
 					"Demon"
@@ -1977,8 +1959,7 @@
 				"rarity": [
 					"uncommon",
 					"common",
-					"Rare",
-					"Rare"
+					"rare"
 				]
 			}
 		],
@@ -2012,8 +1993,7 @@
 				"rarity": [
 					"common",
 					"uncommon",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"subTypes": [
 					"Equipment"
@@ -2152,8 +2132,7 @@
 				"probability": 0.4,
 				"count": 1,
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"cardTypes": [
 					"Planeswalker"
@@ -2388,8 +2367,7 @@
 				"probability": 0.5,
 				"count": 1,
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"cardTypes": [
 					"Planeswalker"
@@ -2408,8 +2386,7 @@
 				"rarity": [
 					"uncommon",
 					"common",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"cardText": "Badger"
 			}
@@ -3128,7 +3105,6 @@
 				"count": 1,
 				"addMaxCount": 2,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -3595,8 +3571,7 @@
 				"rarity": [
 					"common",
 					"uncommon",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"colorType": "MonoColor",
 				"cardText": "Boar"
@@ -3716,8 +3691,7 @@
 				"rarity": [
 					"common",
 					"uncommon",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"colorType": "MonoColor"
 			},
@@ -3782,7 +3756,6 @@
 				],
 				"rarity": [
 					"uncommon",
-					"rare",
 					"rare"
 				]
 			},
@@ -3838,8 +3811,7 @@
 				"rarity": [
 					"common",
 					"uncommon",
-					"rare",
-					"Rare"
+					"rare"
 				],
 				"subTypes": [
 					"Dragon"
@@ -3856,8 +3828,7 @@
 				"probability": 0.4,
 				"count": 1,
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"cardTypes": [
 					"Planeswalker"
@@ -4195,8 +4166,7 @@
 				"addMaxCount": 2,
 				"rarity": [
 					"Common",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"cardTypes": [
 					"Creature",
@@ -4816,25 +4786,25 @@
 					},
 					{
 						"count": 1,
-						"cardName": "Oath of Chandra"
+						"cardName": "Cursed Scroll"
 					},
 					{
 						"count": 1,
-						"cardName": "Pyromancer's Goggles"
+						"cardName": "Mirari"
 					},
 					{
 						"count": 1,
-						"cardName": "Pyromancer's Gauntlet"
+						"cardName": "Hammer of Bogardan"
 					},
 					{
 						"count": 1,
-						"cardName": "Chandra's Regulator"
+						"cardName": "Fork"
 					}
 				]
 			},
 			{
 				"count": 1,
-				"cardName": "Chandra's Defeat"
+				"cardName": "Wheel of Fortune"
 			},
 			{
 				"type": "deckCard",
@@ -5635,7 +5605,7 @@
 				"type": "card",
 				"probability": 1,
 				"count": 2,
-				"cardName": "Chicken Egg"
+				"cardName": "Polluted Delta"
 			},
 			{
 				"type": "item",
@@ -5859,8 +5829,7 @@
 				"count": 2,
 				"addMaxCount": 5,
 				"rarity": [
-					"rare",
-					"Rare"
+					"rare"
 				]
 			},
 			{
@@ -5886,8 +5855,7 @@
 					"Green"
 				],
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				]
 			}
 		],
@@ -5920,8 +5888,7 @@
 				"count": 2,
 				"addMaxCount": 5,
 				"rarity": [
-					"rare",
-					"Rare"
+					"rare"
 				]
 			},
 			{
@@ -5946,8 +5913,7 @@
 					"Blue"
 				],
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				]
 			}
 		],
@@ -6263,7 +6229,6 @@
 				"count": 1,
 				"addMaxCount": 2,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -6342,7 +6307,6 @@
 				"count": 1,
 				"addMaxCount": 1,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -6995,8 +6959,7 @@
 					"Red"
 				],
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"colorType": "MultiColor"
 			}
@@ -7111,8 +7074,7 @@
 				"rarity": [
 					"uncommon",
 					"common",
-					"Rare",
-					"Rare"
+					"rare"
 				]
 			}
 		],
@@ -7169,8 +7131,7 @@
 				"rarity": [
 					"uncommon",
 					"common",
-					"Rare",
-					"Rare"
+					"rare"
 				]
 			}
 		],
@@ -7669,8 +7630,7 @@
 					"Blue"
 				],
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"subTypes": [
 					"Demon"
@@ -7710,8 +7670,7 @@
 				"count": 2,
 				"addMaxCount": 5,
 				"rarity": [
-					"rare",
-					"Rare"
+					"rare"
 				]
 			},
 			{
@@ -7737,8 +7696,7 @@
 					"Blue"
 				],
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"subTypes": [
 					"Demon"
@@ -7886,8 +7844,7 @@
 				"addMaxCount": 4,
 				"rarity": [
 					"Uncommon",
-					"Rare",
-					"Rare"
+					"rare"
 				]
 			},
 			{
@@ -7983,7 +7940,6 @@
 				],
 				"rarity": [
 					"uncommon",
-					"rare",
 					"rare"
 				]
 			},
@@ -8138,8 +8094,7 @@
 				"rarity": [
 					"uncommon",
 					"common",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"subTypes": [
 					"Monk",
@@ -8367,9 +8322,7 @@
 				"probability": 0.25,
 				"count": 1,
 				"rarity": [
-					"rare",
-					"rare",
-					"special"
+					"rare"
 				]
 			},
 			{
@@ -8662,7 +8615,6 @@
 				"count": 1,
 				"addMaxCount": 1,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -8742,7 +8694,6 @@
 				"count": 1,
 				"addMaxCount": 2,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -9183,8 +9134,7 @@
 					"Red"
 				],
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				]
 			}
 		],
@@ -9816,8 +9766,7 @@
 				"count": 1,
 				"addMaxCount": 1,
 				"rarity": [
-					"rare",
-					"Rare"
+					"rare"
 				],
 				"cardTypes": [
 					"Creature",
@@ -10250,7 +10199,6 @@
 				],
 				"rarity": [
 					"uncommon",
-					"rare",
 					"rare"
 				]
 			},
@@ -10539,7 +10487,6 @@
 				"count": 1,
 				"addMaxCount": 1,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -10621,7 +10568,6 @@
 				"count": 1,
 				"addMaxCount": 1,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -10769,8 +10715,7 @@
 				"rarity": [
 					"common",
 					"uncommon",
-					"rare",
-					"Rare"
+					"rare"
 				],
 				"subTypes": [
 					"Dragon"
@@ -10787,8 +10732,7 @@
 				"probability": 0.4,
 				"count": 1,
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"cardTypes": [
 					"Planeswalker"
@@ -11522,7 +11466,6 @@
 				"count": 1,
 				"addMaxCount": 3,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -11694,7 +11637,6 @@
 				"count": 1,
 				"addMaxCount": 1,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -11774,7 +11716,6 @@
 				"count": 1,
 				"addMaxCount": 2,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -12552,8 +12493,7 @@
 					"Black"
 				],
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"colorType": "MonoColor"
 			},
@@ -12875,7 +12815,6 @@
 				"count": 1,
 				"addMaxCount": 2,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -12958,7 +12897,6 @@
 				"count": 1,
 				"addMaxCount": 1,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -13445,8 +13383,7 @@
 				"probability": 1,
 				"count": 2,
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"cardTypes": [
 					"Land"
@@ -14453,7 +14390,6 @@
 					"green"
 				],
 				"rarity": [
-					"rare",
 					"rare"
 				]
 			},
@@ -14838,7 +14774,6 @@
 				"count": 1,
 				"addMaxCount": 4,
 				"rarity": [
-					"rare",
 					"rare"
 				]
 			}
@@ -15328,7 +15263,6 @@
 				"count": 1,
 				"addMaxCount": 1,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -15716,7 +15650,6 @@
 				"addMaxCount": 5,
 				"rarity": [
 					"rare",
-					"Rare",
 					"Rare",
 					"Uncommon"
 				],
@@ -16240,8 +16173,7 @@
 				"rarity": [
 					"Common",
 					"Uncommon",
-					"Rare",
-					"Rare"
+					"rare"
 				]
 			},
 			{
@@ -18439,25 +18371,25 @@
 					},
 					{
 						"count": 1,
-						"cardName": "Oath of Liliana"
+						"cardName": "Phyrexian Tower"
 					},
 					{
 						"count": 1,
-						"cardName": "Pyromancer's Goggles"
+						"cardName": "Necropotence"
 					},
 					{
 						"count": 1,
-						"cardName": "Pyromancer's Gauntlet"
+						"cardName": "Vampiric Tutor"
 					},
 					{
 						"count": 1,
-						"cardName": "Chandra's Regulator"
+						"cardName": "Demonic Tutor"
 					}
 				]
 			},
 			{
 				"count": 1,
-				"cardName": "Liliana's Defeat"
+				"cardName": "Yawgmoth's Bargain"
 			},
 			{
 				"type": "deckCard",
@@ -18560,7 +18492,6 @@
 				"probability": 0.3,
 				"count": 1,
 				"rarity": [
-					"rare",
 					"rare"
 				]
 			},
@@ -18641,7 +18572,6 @@
 				"probability": 0.3,
 				"count": 1,
 				"rarity": [
-					"rare",
 					"rare"
 				]
 			},
@@ -19094,8 +19024,7 @@
 				],
 				"rarity": [
 					"Uncommon",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"colorType": "MonoColor"
 			},
@@ -19148,8 +19077,7 @@
 				],
 				"rarity": [
 					"Uncommon",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"colorType": "MonoColor"
 			},
@@ -19201,8 +19129,7 @@
 				],
 				"rarity": [
 					"Uncommon",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"colorType": "MonoColor"
 			},
@@ -19255,8 +19182,7 @@
 				],
 				"rarity": [
 					"Uncommon",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"colorType": "MonoColor"
 			},
@@ -19311,8 +19237,7 @@
 				],
 				"rarity": [
 					"Uncommon",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"colorType": "MonoColor"
 			},
@@ -19826,8 +19751,7 @@
 					"Blue"
 				],
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				]
 			},
 			{
@@ -19981,7 +19905,6 @@
 				"count": 1,
 				"addMaxCount": 1,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -20744,8 +20667,7 @@
 				"rarity": [
 					"uncommon",
 					"common",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"cardText": "Beast"
 			}
@@ -22327,8 +22249,7 @@
 				"rarity": [
 					"uncommon",
 					"common",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"cardText": "Beast"
 			}
@@ -22820,7 +22741,6 @@
 				"count": 1,
 				"addMaxCount": 2,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -22901,7 +22821,6 @@
 				"count": 1,
 				"addMaxCount": 1,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -22981,8 +22900,7 @@
 				"rarity": [
 					"uncommon",
 					"common",
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"cardText": "Enchantment"
 			}
@@ -23329,7 +23247,6 @@
 				"probability": 0.3,
 				"count": 1,
 				"rarity": [
-					"rare",
 					"rare"
 				]
 			},
@@ -24262,8 +24179,7 @@
 				"count": 2,
 				"addMaxCount": 5,
 				"rarity": [
-					"rare",
-					"Rare"
+					"rare"
 				]
 			},
 			{
@@ -24289,8 +24205,7 @@
 					"Blue"
 				],
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"subTypes": [
 					"Demon"
@@ -24792,7 +24707,6 @@
 				"rarity": [
 					"common",
 					"rare",
-					"Rare",
 					"Uncommon"
 				]
 			},
@@ -25742,8 +25656,7 @@
 				"count": 2,
 				"addMaxCount": 5,
 				"rarity": [
-					"rare",
-					"Rare"
+					"rare"
 				]
 			},
 			{
@@ -25769,8 +25682,7 @@
 					"Blue"
 				],
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"subTypes": [
 					"Demon"
@@ -26304,7 +26216,6 @@
 				"count": 1,
 				"addMaxCount": 1,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -27213,7 +27124,6 @@
 				"count": 2,
 				"addMaxCount": 1,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [
@@ -27476,8 +27386,7 @@
 				"rarity": [
 					"common",
 					"uncommon",
-					"rare",
-					"Rare"
+					"rare"
 				],
 				"subTypes": [
 					"Dragon"
@@ -27494,8 +27403,7 @@
 				"probability": 0.4,
 				"count": 1,
 				"rarity": [
-					"Rare",
-					"Rare"
+					"rare"
 				],
 				"cardTypes": [
 					"Planeswalker"
@@ -28214,7 +28122,6 @@
 				"count": 1,
 				"addMaxCount": 1,
 				"rarity": [
-					"rare",
 					"rare"
 				],
 				"cardTypes": [

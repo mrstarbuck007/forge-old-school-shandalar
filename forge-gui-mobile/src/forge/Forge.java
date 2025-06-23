@@ -125,9 +125,9 @@ public class Forge implements ApplicationListener {
     public static boolean createNewAdventureMap = false;
     private static Localizer localizer;
 
-    public static ApplicationListener getApp(Clipboard clipboard0, IDeviceAdapter deviceAdapter0, String assetDir0, boolean propertyConfig, boolean androidOrientation, int totalRAM, boolean isTablet, int AndroidAPI, String AndroidRelease, String deviceName) {
+    public static ApplicationListener getApp(ApplicationListener app0, Clipboard clipboard0, IDeviceAdapter deviceAdapter0, String assetDir0, boolean propertyConfig, boolean androidOrientation, int totalRAM, boolean isTablet, int AndroidAPI, String AndroidRelease, String deviceName) {
         if (app == null) {
-            app = new Forge();
+            app = app0;
             if (GuiBase.getInterface() == null) {
                 clipboard = clipboard0;
                 deviceAdapter = deviceAdapter0;
@@ -142,6 +142,10 @@ public class Forge implements ApplicationListener {
             GuiBase.setDeviceInfo(deviceName, AndroidRelease, AndroidAPI, totalRAM);
         }
         return app;
+    }
+
+    public static ApplicationListener getApp(Clipboard clipboard0, IDeviceAdapter deviceAdapter0, String assetDir0, boolean propertyConfig, boolean androidOrientation, int totalRAM, boolean isTablet, int AndroidAPI, String AndroidRelease, String deviceName) {
+        return getApp(new Forge(), clipboard0, deviceAdapter0, assetDir0, propertyConfig, androidOrientation, totalRAM, isTablet, AndroidAPI, AndroidRelease, deviceName);
     }
 
     private Forge() {

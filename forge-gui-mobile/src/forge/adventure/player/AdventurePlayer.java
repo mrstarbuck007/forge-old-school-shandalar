@@ -27,6 +27,7 @@ import forge.item.PaperCard;
 import forge.sound.SoundEffectType;
 import forge.sound.SoundSystem;
 import forge.util.ItemPool;
+import org.eclipse.jetty.util.ajax.JSON;
 
 import java.io.Serializable;
 import java.util.*;
@@ -82,6 +83,10 @@ public class AdventurePlayer implements Serializable, SaveFileContent {
     final SignalList onEquipmentChange = new SignalList();
     final SignalList onBlessing = new SignalList();
     private PointOfInterestChanges currentLocationChanges;
+
+    public String toJson() {
+        return new JSON().toJSON(this);
+    }
 
     public AdventurePlayer() {
         clear();

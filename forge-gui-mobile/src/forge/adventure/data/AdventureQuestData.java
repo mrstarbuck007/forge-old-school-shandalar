@@ -87,7 +87,7 @@ public class AdventureQuestData implements Serializable {
             sb.append("name:").append(jsonObj.toJSON(s.name)).append(",");
             sb.append("description:").append(jsonObj.toJSON(s.description)).append(",");
             sb.append("mapFlag:").append(jsonObj.toJSON(s.mapFlag)).append(",");
-            sb.append("mapFlagValue:").append(s.mapFlagValue);
+            sb.append("mapFlagValue:").append(s.mapFlagValue).append(",");
             sb.append("status:").append(jsonObj.toJSON(s.getStatus()));
             sb.append("},");
         }

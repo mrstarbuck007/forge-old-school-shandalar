@@ -84,6 +84,26 @@ public class AdventureQuestStage implements Serializable {
         return status;
     }
 
+    public void setStatus(String str) {
+        switch (str) {
+            case "NONE":
+                status = NONE;
+                break;
+            case "INACTVE":
+                status = INACTIVE;
+                break;
+            case "ACTIVE":
+                status = ACTIVE;
+                break;
+            case "COMPLETE":
+                status = COMPLETE;
+                break;
+            case "FAILED":
+                status = FAILED;
+
+        }
+    }
+
     public PointOfInterest getTargetPOI() {
         return targetPOI;
     }

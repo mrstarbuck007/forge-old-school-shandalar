@@ -35,9 +35,9 @@ public class EditSave extends ApplicationAdapter {
         int saveId = Integer.parseInt(args[0]);
         byte clearFlagValue = Byte.parseByte(args[1]);
         byte travelFlagValue = Byte.parseByte(args[2]);
-        byte isDryRun = Byte.parseByte(args[3]);
-        String clearStatus = args[4];
-        String travelStatus = args[5];
+        String clearStatus = args[3];
+        String travelStatus = args[4];
+        byte isDryRun = Byte.parseByte(args[5]);
 
         // This should fix MAC-OS startup without the need for -XstartOnFirstThread parameter
         if (SharedLibraryLoader.isMac) {

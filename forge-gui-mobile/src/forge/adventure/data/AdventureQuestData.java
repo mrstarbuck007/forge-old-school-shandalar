@@ -13,6 +13,7 @@ import forge.adventure.util.AdventureQuestEvent;
 import forge.adventure.util.Current;
 import forge.adventure.world.WorldSave;
 import forge.util.Aggregates;
+import org.eclipse.jetty.util.ajax.JSON;
 
 import java.io.Serializable;
 import java.util.*;
@@ -71,6 +72,28 @@ public class AdventureQuestData implements Serializable {
     }
     public RewardData getReward() {
         return reward;
+    }
+
+    public String toJson() {
+        JSON jsonObj = new JSON();
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        sb.append("id:").append(id).append(",");
+        sb.append("name:").append(jsonObj.toJSON(name)).append(",");
+        sb.append("stages:[");
+        for (AdventureQuestStage s : stages) {
+            sb.append("{");
+            sb.append("id:").append(s.id).append(",");
+            sb.append("name:").append(jsonObj.toJSON(s.name)).append(",");
+            sb.append("description:").append(jsonObj.toJSON(s.description)).append(",");
+            sb.append("mapFlag:").append(jsonObj.toJSON(s.mapFlag)).append(",");
+            sb.append("mapFlagValue:").append(s.mapFlagValue);
+            sb.append("status:").append(jsonObj.toJSON(s.getStatus()));
+            sb.append("},");
+        }
+        sb.append("]");
+        sb.append("}");
+        return sb.toString();
     }
 
     public AdventureQuestData(AdventureQuestData data){

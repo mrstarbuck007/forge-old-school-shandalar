@@ -85,7 +85,19 @@ public class AdventurePlayer implements Serializable, SaveFileContent {
     private PointOfInterestChanges currentLocationChanges;
 
     public String toJson() {
-        return new JSON().toJSON(this);
+        JSON jsonObj = new JSON();
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        sb.append("quests:[");
+        for (AdventureQuestData q : quests) {
+            sb.append(q.toJson());
+            sb.append(",");
+        }
+        sb.append("],");
+        sb.append("flags:");
+        sb.append(jsonObj.toJSON(questFlags));
+        sb.append("}");
+        return sb.toString();
     }
 
     public AdventurePlayer() {

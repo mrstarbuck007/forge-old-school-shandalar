@@ -3,6 +3,8 @@ package forge.deck;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Map.Entry;
+import java.util.regex.Pattern;
+
 import forge.Forge;
 import forge.assets.FImage;
 import forge.assets.FSkinImage;
@@ -76,10 +78,13 @@ public class FDeckViewer extends FScreen {
         final String nl = System.lineSeparator();
         final StringBuilder collectionList = new StringBuilder();
         Set<String> accounted = new HashSet<>();
+        collectionList.append("\"Count\",\"Name\"").append(nl);
+        Pattern regex = Pattern.compile("\"");
         for (final Entry<PaperCard, Integer> entry : pool) {
             String cardName = entry.getKey().getCardName();
             if (!accounted.contains(cardName)) {
-                collectionList.append(pool.countByName(cardName)).append(" ").append(cardName).append(nl);
+                String regexCardName = regex.matcher(cardName).replaceAll("\"\"");
+                collectionList.append("\"").append(pool.countByName(cardName)).append("\",\"").append(regexCardName).append("\"").append(nl);
                 accounted.add(cardName);
             }
         }

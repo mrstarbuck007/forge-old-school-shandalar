@@ -214,7 +214,7 @@ public class AdventureDeckEditor extends TabPageScreen<AdventureDeckEditor> {
             int autoSellCount = Current.player().autoSellCards.count(card);
             int sellableCount = Current.player().getSellableCards().count(card);
 
-            if (card.hasNoSellValue()) {
+            if (card != null && card.hasNoSellValue()) {
                 FMenuItem unsellableIndicator = new FMenuItem(Forge.getLocalizer().getMessage("lblUnsellable"), null, null);
                 unsellableIndicator.setEnabled(false);
                 menu.addItem(unsellableIndicator);

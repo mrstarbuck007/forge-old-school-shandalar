@@ -80,9 +80,10 @@ public class FDeckViewer extends FScreen {
         Set<String> accounted = new HashSet<>();
         collectionList.append("\"Count\",\"Name\"").append(nl);
         Pattern regex = Pattern.compile("\"");
+        Set<String> basicLandNames = Set.of("Plains", "Island", "Swamp", "Mountain", "Forest");
         for (final Entry<PaperCard, Integer> entry : pool) {
             String cardName = entry.getKey().getCardName();
-            if (!accounted.contains(cardName)) {
+            if (!accounted.contains(cardName) && !basicLandNames.contains(cardName)) {
                 String regexCardName = regex.matcher(cardName).replaceAll("\"\"");
                 collectionList.append("\"").append(pool.countByName(cardName)).append("\",\"").append(regexCardName).append("\"").append(nl);
                 accounted.add(cardName);

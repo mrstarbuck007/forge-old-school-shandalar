@@ -10,7 +10,6 @@ import forge.adventure.player.AdventurePlayer;
 import forge.assets.FImage;
 import forge.assets.FSkinImage;
 import forge.assets.ImageCache;
-import forge.card.CardEdition;
 import forge.card.CardRarity;
 import forge.item.PaperCard;
 import forge.itemmanager.CardManager;

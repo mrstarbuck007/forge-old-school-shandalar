@@ -101,6 +101,7 @@ public class FDeckViewer extends FScreen {
         // get the player's collection minus the auto sell cards
         CardPool nonAutoSellCards = player.getCollectionCards(false);
         // loop through the non auto sell cards
+        int totalNumExtras = 0;
         for (Map.Entry<PaperCard, Integer> entry : nonAutoSellCards) {
             PaperCard card = entry.getKey();
             if (BASIC_LAND_NAMES.contains(card.getCardName())) {
@@ -109,11 +110,13 @@ public class FDeckViewer extends FScreen {
             // check if there are more than 4 copies of the card
             int copies = entry.getValue();
             if (copies > 4) {
+                int numExtras = copies - 4;
                 // add the card to the sellable cards
-                player.autoSellCards.add(card, copies - 4);
+                player.autoSellCards.add(card, numExtras);
+                totalNumExtras += numExtras;
             }
         }
-        FOptionPane.showMessageDialog(Forge.getLocalizer().getMessage("lblExtrasAddedToAutoSell"));
+        FOptionPane.showMessageDialog(Forge.getLocalizer().getMessage("lblExtrasAddedToAutoSell", totalNumExtras));
     }
 
     private final Deck deck;

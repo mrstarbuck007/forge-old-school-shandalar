@@ -10,7 +10,6 @@ import forge.adventure.player.AdventurePlayer;
 import forge.assets.FImage;
 import forge.assets.FSkinImage;
 import forge.assets.ImageCache;
-import forge.card.CardRarity;
 import forge.item.PaperCard;
 import forge.itemmanager.CardManager;
 import forge.itemmanager.ItemManagerConfig;
@@ -86,7 +85,7 @@ public class FDeckViewer extends FScreen {
         for (final Entry<PaperCard, Integer> entry : pool) {
             PaperCard card = entry.getKey();
             String cardName = card.getCardName();
-            if (!accounted.contains(cardName) && card.getRarity() != CardRarity.BasicLand) {
+            if (!accounted.contains(cardName) && !card.isVeryBasicLand()) {
                 String regexCardName = regex.matcher(cardName).replaceAll("\"\"");
                 collectionList.append("\"").append(pool.countByName(cardName)).append("\",\"").append(regexCardName).append("\"").append(nl);
                 accounted.add(cardName);
@@ -118,7 +117,11 @@ public class FDeckViewer extends FScreen {
         int curTotalCards = 0;
         int totalCardsAdded = 0;
         for (Entry<PaperCard, Integer> cardEntry : nonAutoSellCards) {
-            curCardName = cardEntry.getKey().getCardName();
+            PaperCard card = cardEntry.getKey();
+            if (card.isVeryBasicLand()) {
+                continue;
+            }
+            curCardName = card.getCardName();
             if (!curCardName.equals(prevCardName) && curTotalCards > 4) {
                 totalCardsAdded += processExtraCardEntries(curCardEntries, curTotalCards - 4);
                 curCardEntries.clear();
@@ -140,8 +143,12 @@ public class FDeckViewer extends FScreen {
         int totalCardsAdded = 0;
         // cards are already sorted by card edition (newest to oldest)
         for (Entry<PaperCard, Integer> cardEntry : cardEntries) {
+            PaperCard card = cardEntry.getKey();
+            if (card.isFoil()) {
+                continue;
+            }
             int cardsToAdd = Math.min(extraCards, cardEntry.getValue());
-            AdventurePlayer.current().autoSellCards.add(cardEntry.getKey(), cardsToAdd);
+            AdventurePlayer.current().autoSellCards.add(card, cardsToAdd);
             totalCardsAdded += cardsToAdd;
             extraCards -= cardsToAdd;
             if (extraCards <= 0) {

@@ -578,7 +578,7 @@ public class AdventureDeckEditor extends TabPageScreen<AdventureDeckEditor> {
                     protected void buildMenu() {
                         addItem(new FMenuItem(Forge.getLocalizer().getMessage("btnCopyToClipboard"), Forge.hdbuttons ? FSkinImage.HDEXPORT : FSkinImage.BLANK, e1 -> FDeckViewer.copyDeckToClipboard(getDeck())));
                         addItem(new FMenuItem(Forge.getLocalizer().getMessage("btnCopyCollectionToClipboard"), Forge.hdbuttons ? FSkinImage.HDEXPORT : FSkinImage.BLANK, e1 -> {
-                            FDeckViewer.copyCollectionToClipboard(AdventurePlayer.current().getCards());
+                            FDeckViewer.copyCollectionToClipboard();
                         }));
                         addItem(new FMenuItem(Forge.getLocalizer().getMessage("btnAddExtrasToAutoSell"), Forge.hdbuttons ? FSkinImage.HDEXPORT : FSkinImage.BLANK, e1 -> {
                             FDeckViewer.addExtrasToAutoSell();

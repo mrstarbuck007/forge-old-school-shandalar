@@ -11,6 +11,7 @@ import forge.adventure.player.AdventurePlayer;
 import forge.assets.FImage;
 import forge.assets.FSkinImage;
 import forge.assets.ImageCache;
+import forge.card.CardRarity;
 import forge.item.PaperCard;
 import forge.itemmanager.CardManager;
 import forge.itemmanager.ItemManagerConfig;
@@ -22,8 +23,6 @@ import forge.screens.match.MatchController;
 import forge.toolbox.FOptionPane;
 
 public class FDeckViewer extends FScreen {
-    public static final Set<String> BASIC_LAND_NAMES = Set.of("Plains", "Island", "Swamp", "Mountain", "Forest");
-
     private static FDeckViewer deckViewer;
     private static FPopupMenu menu = new FPopupMenu() {
         @Override
@@ -78,15 +77,17 @@ public class FDeckViewer extends FScreen {
         FOptionPane.showMessageDialog(Forge.getLocalizer().getMessage("lblDeckListCopiedClipboard", deck.getName()));
     }
 
-    public static void copyCollectionToClipboard(CardPool pool) {
+    public static void copyCollectionToClipboard() {
         final String nl = System.lineSeparator();
         final StringBuilder collectionList = new StringBuilder();
         Set<String> accounted = new HashSet<>();
         collectionList.append("\"Count\",\"Name\"").append(nl);
         Pattern regex = Pattern.compile("\"");
+        CardPool pool = AdventurePlayer.current().getCards();
         for (final Entry<PaperCard, Integer> entry : pool) {
-            String cardName = entry.getKey().getCardName();
-            if (!accounted.contains(cardName) && !BASIC_LAND_NAMES.contains(cardName)) {
+            PaperCard card = entry.getKey();
+            String cardName = card.getCardName();
+            if (!accounted.contains(cardName) && card.getRarity() != CardRarity.BasicLand) {
                 String regexCardName = regex.matcher(cardName).replaceAll("\"\"");
                 collectionList.append("\"").append(pool.countByName(cardName)).append("\",\"").append(regexCardName).append("\"").append(nl);
                 accounted.add(cardName);
@@ -104,7 +105,7 @@ public class FDeckViewer extends FScreen {
         int totalNumExtras = 0;
         for (Map.Entry<PaperCard, Integer> entry : nonAutoSellCards) {
             PaperCard card = entry.getKey();
-            if (BASIC_LAND_NAMES.contains(card.getCardName())) {
+            if (card.getRarity() == CardRarity.BasicLand) {
                 continue; // ignore basic lands in the check for auto sell
             }
             // check if there are more than 4 copies of the card

@@ -1,11 +1,13 @@
 package forge.deck;
 
+import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
 import forge.Forge;
+import forge.adventure.player.AdventurePlayer;
 import forge.assets.FImage;
 import forge.assets.FSkinImage;
 import forge.assets.ImageCache;
@@ -20,6 +22,8 @@ import forge.screens.match.MatchController;
 import forge.toolbox.FOptionPane;
 
 public class FDeckViewer extends FScreen {
+    public static final Set<String> BASIC_LAND_NAMES = Set.of("Plains", "Island", "Swamp", "Mountain", "Forest");
+
     private static FDeckViewer deckViewer;
     private static FPopupMenu menu = new FPopupMenu() {
         @Override
@@ -80,10 +84,9 @@ public class FDeckViewer extends FScreen {
         Set<String> accounted = new HashSet<>();
         collectionList.append("\"Count\",\"Name\"").append(nl);
         Pattern regex = Pattern.compile("\"");
-        Set<String> basicLandNames = Set.of("Plains", "Island", "Swamp", "Mountain", "Forest");
         for (final Entry<PaperCard, Integer> entry : pool) {
             String cardName = entry.getKey().getCardName();
-            if (!accounted.contains(cardName) && !basicLandNames.contains(cardName)) {
+            if (!accounted.contains(cardName) && !BASIC_LAND_NAMES.contains(cardName)) {
                 String regexCardName = regex.matcher(cardName).replaceAll("\"\"");
                 collectionList.append("\"").append(pool.countByName(cardName)).append("\",\"").append(regexCardName).append("\"").append(nl);
                 accounted.add(cardName);
@@ -91,6 +94,25 @@ public class FDeckViewer extends FScreen {
         }
         Forge.getClipboard().setContents(collectionList.toString());
         FOptionPane.showMessageDialog(Forge.getLocalizer().getMessage("lblCollectionCopiedClipboard"));
+    }
+
+    public static void addExtrasToAutoSell() {
+        AdventurePlayer player = AdventurePlayer.current();
+        // get the player's collection minus the auto sell cards
+        CardPool nonAutoSellCards = player.getCollectionCards(false);
+        // loop through the non auto sell cards
+        for (Map.Entry<PaperCard, Integer> entry : nonAutoSellCards) {
+            PaperCard card = entry.getKey();
+            if (BASIC_LAND_NAMES.contains(card.getCardName())) {
+                continue; // ignore basic lands in the check for auto sell
+            }
+            // check if there are more than 4 copies of the card
+            int copies = entry.getValue();
+            if (copies > 4) {
+                // add the card to the sellable cards
+                player.autoSellCards.add(card, copies - 4);
+            }
+        }
     }
 
     private final Deck deck;

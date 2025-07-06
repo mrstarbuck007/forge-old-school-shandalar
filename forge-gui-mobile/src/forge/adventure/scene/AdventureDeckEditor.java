@@ -580,6 +580,10 @@ public class AdventureDeckEditor extends TabPageScreen<AdventureDeckEditor> {
                         addItem(new FMenuItem(Forge.getLocalizer().getMessage("btnCopyCollectionToClipboard"), Forge.hdbuttons ? FSkinImage.HDEXPORT : FSkinImage.BLANK, e1 -> {
                             FDeckViewer.copyCollectionToClipboard(AdventurePlayer.current().getCards());
                         }));
+                        addItem(new FMenuItem(Forge.getLocalizer().getMessage("btnAddExtrasToAutoSell"), Forge.hdbuttons ? FSkinImage.HDEXPORT : FSkinImage.BLANK, e1 -> {
+                            FDeckViewer.addExtrasToAutoSell();
+                            refresh();
+                        }));
                         if (allowsAddBasic()) {
                             FMenuItem addBasic = new FMenuItem(Forge.getLocalizer().getMessage("lblAddBasicLands"), FSkinImage.LANDLOGO, e1 -> launchBasicLandDialog());
                             addItem(addBasic);
@@ -624,7 +628,6 @@ public class AdventureDeckEditor extends TabPageScreen<AdventureDeckEditor> {
             }
         });
     }
-
 
     protected void launchBasicLandDialog() {
         CardEdition defaultLandSet;

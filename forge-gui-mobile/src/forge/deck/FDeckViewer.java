@@ -113,6 +113,7 @@ public class FDeckViewer extends FScreen {
                 player.autoSellCards.add(card, copies - 4);
             }
         }
+        FOptionPane.showMessageDialog(Forge.getLocalizer().getMessage("lblExtrasAddedToAutoSell"));
     }
 
     private final Deck deck;

@@ -114,57 +114,43 @@ public class FDeckViewer extends FScreen {
         // sort by card name, edition in reverse order (Z to A, newest to oldest)
         nonAutoSellCards.sort(Collections.reverseOrder(Entry.comparingByKey()));
         // process list, adding extra card copies to the player's auto sell collection
-        String cardName = null;
-        List<Entry<PaperCard, Integer>> cardCounts = new ArrayList<>();
-        int totalCardCount = 0;
-        for (Entry<PaperCard, Integer> cardCount : nonAutoSellCards) {
-            
+        String prevCardName = null, curCardName = null;
+        List<Entry<PaperCard, Integer>> curCardEntries = new ArrayList<>();
+        int curTotalCards = 0;
+        int totalCardsAdded = 0;
+        for (Entry<PaperCard, Integer> cardEntry : nonAutoSellCards) {
+            curCardName = cardEntry.getKey().getCardName();
+            if (!curCardName.equals(prevCardName) && curTotalCards > 4) {
+                totalCardsAdded += processExtraCardEntries(curCardEntries, curTotalCards - 4);
+                curCardEntries.clear();
+                curTotalCards = 0;
+            }
+
+            curCardEntries.add(cardEntry);
+            curTotalCards += cardEntry.getValue();
+            prevCardName = curCardName;
         }
+        if (curTotalCards > 4) {
+            totalCardsAdded += processExtraCardEntries(curCardEntries, curTotalCards - 4);
+        }
+
+        FOptionPane.showMessageDialog(Forge.getLocalizer().getMessage("lblExtrasAddedToAutoSell", totalCardsAdded));
     }
 
-    public static void addExtrasToAutoSellOld() {
-        // get the player's collection minus the auto sell cards
-        CardPool nonAutoSellCards = AdventurePlayer.current().getCollectionCards(false);
-        // define the collections we will need
-        Map<String, CardCounter> cardCounterByName = new HashMap<>();
-        // loop through the non auto sell cards
-        Set<String> skippedCardNames = new HashSet<>();
-        for (Entry<PaperCard, Integer> cardCountEntry : nonAutoSellCards) {
-            PaperCard card = cardCountEntry.getKey();
-            String cardName = card.getCardName();
-            if (skippedCardNames.contains(cardName) || card.getRarity() == CardRarity.BasicLand || nonAutoSellCards.countByName(card) <= 4) {
-                skippedCardNames.add(cardName);
-                continue;
-            }
-
-            if (!cardCounterByName.containsKey(cardName)) {
-                cardCounterByName.put(cardName, new CardCounter());
-            }
-            CardCounter counter = cardCounterByName.get(cardName);
-            counter.cardCountEntries.add(cardCountEntry);
-        }
-
-        int totalAddedCount = 0;
-        for (CardCounter counter : cardCounterByName.values()) {
-            int extraCount = counter.getTotalCardCount() - 4;
-            if (extraCount <= 0) {
-                continue;
-            }
-
-            counter.cardCountEntries.sort(Collections.reverseOrder(Entry.comparingByKey()));
-            for (Entry<PaperCard, Integer> cardCountEntry : counter.cardCountEntries) {
-                int addedCount = Math.min(extraCount, cardCountEntry.getValue());
-                AdventurePlayer.current().autoSellCards.add(cardCountEntry.getKey(), addedCount);
-                totalAddedCount += addedCount;
-                extraCount -= addedCount;
-
-                if (extraCount <= 0) {
-                    break;
-                }
+    private static int processExtraCardEntries(List<Entry<PaperCard, Integer>> cardEntries, int extraCards) {
+        int totalCardsAdded = 0;
+        // cards are already sorted by card edition (newest to oldest)
+        for (Entry<PaperCard, Integer> cardEntry : cardEntries) {
+            int cardsToAdd = Math.min(extraCards, cardEntry.getValue());
+            AdventurePlayer.current().autoSellCards.add(cardEntry.getKey(), cardsToAdd);
+            totalCardsAdded += cardsToAdd;
+            extraCards -= cardsToAdd;
+            if (extraCards <= 0) {
+                break;
             }
         }
 
-        FOptionPane.showMessageDialog(Forge.getLocalizer().getMessage("lblExtrasAddedToAutoSell", totalAddedCount));
+        return totalCardsAdded;
     }
 
     private final Deck deck;

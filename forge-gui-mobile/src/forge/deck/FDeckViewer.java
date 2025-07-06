@@ -144,7 +144,7 @@ public class FDeckViewer extends FScreen {
         // cards are already sorted by card edition (newest to oldest)
         for (Entry<PaperCard, Integer> cardEntry : cardEntries) {
             PaperCard card = cardEntry.getKey();
-            if (card.isFoil()) {
+            if (card.isFoil() || card.hasNoSellValue()) {
                 continue;
             }
             int cardsToAdd = Math.min(extraCards, cardEntry.getValue());

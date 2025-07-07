@@ -4,7 +4,6 @@ import java.util.*;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
-import com.google.common.collect.Lists;
 import forge.Forge;
 import forge.adventure.player.AdventurePlayer;
 import forge.assets.FImage;
@@ -108,55 +107,36 @@ public class FDeckViewer extends FScreen {
 
     public static void addExtrasToAutoSell() {
         // get the player's collection minus the auto sell cards
-        List<Entry<PaperCard, Integer>> nonAutoSellCards = Lists.newArrayList(AdventurePlayer.current().getCollectionCards(false));
-        // sort by card name, edition in reverse order (Z to A, newest to oldest)
-        nonAutoSellCards.sort(Collections.reverseOrder(Entry.comparingByKey()));
-        // process list, adding extra card copies to the player's auto sell collection
-        String prevCardName = null, curCardName = null;
-        List<Entry<PaperCard, Integer>> curCardEntries = new ArrayList<>();
-        int curTotalCards = 0;
-        int totalCardsAdded = 0;
+        CardPool nonAutoSellCards = AdventurePlayer.current().getCollectionCards(false);
+
+        Map<String, List<Entry<PaperCard, Integer>>> cardEntriesByName = new HashMap<>();
+
         for (Entry<PaperCard, Integer> cardEntry : nonAutoSellCards) {
             PaperCard card = cardEntry.getKey();
             if (card.isVeryBasicLand()) {
                 continue;
             }
-            curCardName = card.getCardName();
-            if (!curCardName.equals(prevCardName) && curTotalCards > 4) {
-                totalCardsAdded += processExtraCardEntries(curCardEntries, curTotalCards - 4);
-                curCardEntries.clear();
-                curTotalCards = 0;
-            }
 
-            curCardEntries.add(cardEntry);
-            curTotalCards += cardEntry.getValue();
-            prevCardName = curCardName;
+            String cardName = card.getCardName().toLowerCase();
+            if (!cardEntriesByName.containsKey(cardName)) {
+                cardEntriesByName.put(cardName, new ArrayList<>());
+            }
+            List<Entry<PaperCard, Integer>> cardEntries = cardEntriesByName.get(cardName);
+            cardEntries.add(cardEntry);
         }
-        if (curTotalCards > 4) {
-            totalCardsAdded += processExtraCardEntries(curCardEntries, curTotalCards - 4);
+
+        int totalCardsAdded = 0;
+        for (List<Entry<PaperCard, Integer>> cardEntries : cardEntriesByName.values()) {
+            int totalCards = 0;
+            for (Entry<PaperCard, Integer> cardEntry : cardEntries) {
+                totalCards += cardEntry.getValue();
+            }
+            if (totalCards > 4) {
+                totalCardsAdded += AdventurePlayer.current().addExtraCardEntriesToAutoSell(cardEntries, totalCards - 4);
+            }
         }
 
         FOptionPane.showMessageDialog(Forge.getLocalizer().getMessage("lblExtrasAddedToAutoSell", totalCardsAdded));
-    }
-
-    private static int processExtraCardEntries(List<Entry<PaperCard, Integer>> cardEntries, int extraCards) {
-        int totalCardsAdded = 0;
-        // cards are already sorted by card edition (newest to oldest)
-        for (Entry<PaperCard, Integer> cardEntry : cardEntries) {
-            PaperCard card = cardEntry.getKey();
-            if (card.isFoil() || card.hasNoSellValue()) {
-                continue;
-            }
-            int cardsToAdd = Math.min(extraCards, cardEntry.getValue());
-            AdventurePlayer.current().autoSellCards.add(card, cardsToAdd);
-            totalCardsAdded += cardsToAdd;
-            extraCards -= cardsToAdd;
-            if (extraCards <= 0) {
-                break;
-            }
-        }
-
-        return totalCardsAdded;
     }
 
     private final Deck deck;

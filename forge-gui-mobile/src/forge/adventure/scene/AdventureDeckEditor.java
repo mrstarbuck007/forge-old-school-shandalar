@@ -580,10 +580,12 @@ public class AdventureDeckEditor extends TabPageScreen<AdventureDeckEditor> {
                         addItem(new FMenuItem(Forge.getLocalizer().getMessage("btnCopyCollectionToClipboard"), Forge.hdbuttons ? FSkinImage.HDEXPORT : FSkinImage.BLANK, e1 -> {
                             FDeckViewer.copyCollectionToClipboard();
                         }));
-                        addItem(new FMenuItem(Forge.getLocalizer().getMessage("btnAddExtrasToAutoSell"), Forge.hdbuttons ? FSkinImage.HDEXPORT : FSkinImage.BLANK, e1 -> {
-                            FDeckViewer.addExtrasToAutoSell();
-                            refresh();
-                        }));
+                        if (!isEvent()) {
+                            addItem(new FMenuItem(Forge.getLocalizer().getMessage("btnAddExtrasToAutoSell"), Forge.hdbuttons ? FSkinImage.HDEXPORT : FSkinImage.BLANK, e1 -> {
+                                FDeckViewer.addExtrasToAutoSell();
+                                refresh();
+                            }));
+                        }
                         if (allowsAddBasic()) {
                             FMenuItem addBasic = new FMenuItem(Forge.getLocalizer().getMessage("lblAddBasicLands"), FSkinImage.LANDLOGO, e1 -> launchBasicLandDialog());
                             addItem(addBasic);
@@ -669,6 +671,10 @@ public class AdventureDeckEditor extends TabPageScreen<AdventureDeckEditor> {
         if (currentEvent.eventStatus == AdventureEventController.EventStatus.Entered && currentEvent.isDraftComplete)
             return true;
         else return currentEvent.eventStatus == AdventureEventController.EventStatus.Ready;
+    }
+
+    private boolean isEvent() {
+        return currentEvent != null;
     }
 
     @Override

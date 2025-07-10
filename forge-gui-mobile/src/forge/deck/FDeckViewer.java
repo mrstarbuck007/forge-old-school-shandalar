@@ -94,17 +94,6 @@ public class FDeckViewer extends FScreen {
         FOptionPane.showMessageDialog(Forge.getLocalizer().getMessage("lblCollectionCopiedClipboard"));
     }
 
-    public static final class CardCounter {
-        public List<Entry<PaperCard, Integer>> cardCountEntries = new ArrayList<>();
-        public int getTotalCardCount() {
-            int totalCardCount = 0;
-            for (Entry<PaperCard, Integer> cardCountEntry : cardCountEntries) {
-                totalCardCount += cardCountEntry.getValue();
-            }
-            return totalCardCount;
-        };
-    }
-
     public static void addExtrasToAutoSell() {
         // get the player's collection minus the auto sell cards
         CardPool nonAutoSellCards = AdventurePlayer.current().getCollectionCards(false);

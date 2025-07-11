@@ -34,10 +34,10 @@ public class EditSave extends ApplicationAdapter {
     public static void main(String[] args) {
         int saveId = Integer.parseInt(args[0]);
         int questId = Integer.parseInt(args[1]);
-        String stageName = args[2];
-        byte flagValue = Byte.parseByte(args[3]);
-        String flagStatus = args[4];
-        byte isDryRun = Byte.parseByte(args[5]);
+        String stageName = questId >= 0 ? args[2] : "";
+        byte flagValue = questId >= 0 ? Byte.parseByte(args[3]) : -1;
+        String flagStatus = questId >= 0 ? args[4] : "";
+        byte isDryRun = questId >= 0 ? Byte.parseByte(args[5]) : -1;
 
         // This should fix MAC-OS startup without the need for -XstartOnFirstThread parameter
         if (SharedLibraryLoader.isMac) {
@@ -90,6 +90,9 @@ public class EditSave extends ApplicationAdapter {
         }
 
         System.out.println(player.toJson());
+        if (questId < 0) {
+            return;
+        }
 
         for (AdventureQuestData quest : player.getQuests()) {
             if (quest.getID() == questId) {

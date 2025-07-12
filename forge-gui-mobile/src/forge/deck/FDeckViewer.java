@@ -78,21 +78,29 @@ public class FDeckViewer extends FScreen {
     public static void copyCollectionToClipboard() {
         final String nl = System.lineSeparator();
         final StringBuilder collectionList = new StringBuilder();
-        Set<String> accounted = new HashSet<>();
+        Map<String, String> accountedMap = new HashMap<>();
         collectionList.append("\"Count\",\"Name\",\"Edition\"").append(nl);
         Pattern regex = Pattern.compile("\"");
         CardPool pool = AdventurePlayer.current().getCards();
+
         for (final Entry<PaperCard, Integer> entry : pool) {
             PaperCard card = entry.getKey();
             String cardName = card.getCardName();
             String cardEdition = card.getEdition();
             String accountedKey = cardName + '\t' + cardEdition;
-            if (!accounted.contains(accountedKey) && !card.isVeryBasicLand()) {
+            if (!accountedMap.containsKey(accountedKey) && !card.isVeryBasicLand()) {
                 String regexCardName = regex.matcher(cardName).replaceAll("\"\"");
-                collectionList.append("\"").append(pool.countByNameAndEdition(card)).append("\",\"").append(regexCardName).append("\",\"").append(cardEdition).append("\"").append(nl);
-                accounted.add(accountedKey);
+                String cardLine = "\"" + pool.countByNameAndEdition(card) + "\",\"" + regexCardName + "\",\"" + cardEdition + "\"" + nl;
+                accountedMap.put(accountedKey, cardLine);
             }
         }
+
+        List<String> sortedKeys = new ArrayList<>(accountedMap.keySet());
+        Collections.sort(sortedKeys);
+        for (String key : sortedKeys) {
+            collectionList.append(accountedMap.get(key));
+        }
+
         Forge.getClipboard().setContents(collectionList.toString());
         FOptionPane.showMessageDialog(Forge.getLocalizer().getMessage("lblCollectionCopiedClipboard"));
     }

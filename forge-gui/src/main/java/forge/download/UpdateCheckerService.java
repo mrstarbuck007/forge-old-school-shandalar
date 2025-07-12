@@ -20,7 +20,7 @@ public class UpdateCheckerService {
     private static final Localizer localizer = Localizer.getInstance();
 
     // GitHub repo details for the mod (copied from AutoUpdater)
-    private static final String GITHUB_MOD_REPO_OWNER = "vanja-ivancevic";
+    private static final String GITHUB_MOD_REPO_OWNER = "mrstarbuck007";
     private static final String GITHUB_MOD_REPO_NAME = "forge-old-school-shandalar";
     private static final String GITHUB_MOD_API_LATEST_RELEASE_URL = "https://api.github.com/repos/" + GITHUB_MOD_REPO_OWNER + "/" + GITHUB_MOD_REPO_NAME + "/releases/latest";
 

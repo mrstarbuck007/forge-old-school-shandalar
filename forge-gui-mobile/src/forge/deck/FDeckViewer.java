@@ -53,8 +53,6 @@ public class FDeckViewer extends FScreen {
             dName = "";
         deckList.append(dName == null ? "" : "Deck: "+dName + nl + nl);
 
-        Pattern regex = Pattern.compile("\"");
-
         for (DeckSection s : DeckSection.values()) {
             CardPool cp = deck.get(s);
             if (cp == null || cp.isEmpty()) {
@@ -66,8 +64,7 @@ public class FDeckViewer extends FScreen {
             for (final PaperCard card : cp.toFlatList()) {
                 String cardName = card.getCardName();
                 if (!accounted.contains(cardName)) {
-                    String regexCardName = regex.matcher(cardName).replaceAll("\"\"");
-                    deckList.append("\"").append(cp.countByName(cardName)).append("\",\"").append(regexCardName).append("\"").append(nl); //search for all  instances of that name in the list.
+                    deckList.append(cp.countByName(cardName)).append(" ").append(cardName).append(nl); //search for all  instances of that name in the list.
                     accounted.add(cardName); //add the name to the list so it ignores the next time it appears
                 }
             }

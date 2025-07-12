@@ -85,10 +85,12 @@ public class FDeckViewer extends FScreen {
         for (final Entry<PaperCard, Integer> entry : pool) {
             PaperCard card = entry.getKey();
             String cardName = card.getCardName();
-            if (!accounted.contains(cardName) && !card.isVeryBasicLand()) {
+            String cardEdition = card.getEdition();
+            String accountedKey = cardName + '\t' + cardEdition;
+            if (!accounted.contains(accountedKey) && !card.isVeryBasicLand()) {
                 String regexCardName = regex.matcher(cardName).replaceAll("\"\"");
-                collectionList.append("\"").append(pool.countByName(cardName)).append("\",\"").append(regexCardName).append("\",\"").append(card.getEdition()).append("\"").append(nl);
-                accounted.add(cardName);
+                collectionList.append("\"").append(pool.countByNameAndEdition(card)).append("\",\"").append(regexCardName).append("\",\"").append(cardEdition).append("\"").append(nl);
+                accounted.add(accountedKey);
             }
         }
         Forge.getClipboard().setContents(collectionList.toString());

@@ -25,8 +25,8 @@ public class GameLauncher {
             Configuration.GLFW_LIBRARY_NAME.set("glfw_async");
         }
         Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
-        ApplicationListener start = Forge.getApp(new Lwjgl3Clipboard(), new Main.DesktopAdapter(switchOrientationFile),//todo get totalRAM && isTabletDevice
-                assetsDir, false, false, 0, false, 0, "", "");
+        ApplicationListener start = Forge.getApp(new Lwjgl3Clipboard(), new Main.DesktopAdapter(switchOrientationFile),//todo get isTabletDevice
+                assetsDir, false, false, getMaxRAM(), false, 0, "", "");
         if (Config.instance().getSettingData().fullScreen) {
             config.setFullscreenMode(Lwjgl3ApplicationConfiguration.getDisplayMode());
             config.setAutoIconify(true);
@@ -49,5 +49,10 @@ public class GameLauncher {
         config.setHdpiMode(HdpiMode.Logical);
 
         new Lwjgl3Application(start, config);
+    }
+
+    public static int getMaxRAM() {
+        long maxRAMm = Runtime.getRuntime().maxMemory() / 1024 / 1024;
+        return maxRAMm > Integer.MAX_VALUE ? Integer.MAX_VALUE : (int) maxRAMm;
     }
 }

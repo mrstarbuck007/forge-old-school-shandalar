@@ -79,7 +79,7 @@ public class FDeckViewer extends FScreen {
         final String nl = System.lineSeparator();
         final StringBuilder collectionList = new StringBuilder();
         Set<String> accounted = new HashSet<>();
-        collectionList.append("\"Count\",\"Name\"").append(nl);
+        collectionList.append("\"Count\",\"Name\",\"Edition\"").append(nl);
         Pattern regex = Pattern.compile("\"");
         CardPool pool = AdventurePlayer.current().getCards();
         for (final Entry<PaperCard, Integer> entry : pool) {
@@ -87,7 +87,7 @@ public class FDeckViewer extends FScreen {
             String cardName = card.getCardName();
             if (!accounted.contains(cardName) && !card.isVeryBasicLand()) {
                 String regexCardName = regex.matcher(cardName).replaceAll("\"\"");
-                collectionList.append("\"").append(pool.countByName(cardName)).append("\",\"").append(regexCardName).append("\"").append(nl);
+                collectionList.append("\"").append(pool.countByName(cardName)).append("\",\"").append(regexCardName).append("\",\"").append(card.getEdition()).append("\"").append(nl);
                 accounted.add(cardName);
             }
         }
